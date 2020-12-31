@@ -42,7 +42,7 @@ const AllBlogs = () => {
           // console.log(updatedBlogs)
           updatedBlogs=updateBlogs(updatedBlogs,data.data)
         })
-      },5000)
+      },1000)
 
     
     // })

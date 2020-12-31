@@ -47,7 +47,6 @@ const AddBlog = () => {
                     const socket=socketIOClient('https://blooming-gorge-74715.herokuapp.com');
                     socket.emit('blog_added',{data:res.data});
                     history.replace('/')
-
                 }
             }
                 )
