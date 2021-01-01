@@ -52,12 +52,12 @@ const useStyles = makeStyles({
           <Box color="primary.main">{blog[0]}</Box>
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-         Rating   {blog[4]}/5
+         Rating   {blog[4]*5}/5
         </Typography>
         <Typography variant="body2" component="p">
           <br />
           <Box color="info.main">
-         { s.slice(0,200)+' . . . . .'}
+         { blog[1].slice(0,200)+' . . . . .'}
           </Box>
         </Typography>
       </CardContent>

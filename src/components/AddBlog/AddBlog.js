@@ -4,7 +4,8 @@ import { useContext } from 'react'
 import { BlogsContext } from '../../context/Context'
 import NavBar from '../Navbar/NavBar'
 import {useHistory} from 'react-router-dom'
-import socketIOClient from 'socket.io-client'
+// import socketIOClient from 'socket.io-client'
+import {socket} from '../../routes/Home'
 
 const AddBlog = () => {
     let history=useHistory()
@@ -44,9 +45,10 @@ const AddBlog = () => {
                     setTotalBlogs(totalBlogs+1)
                     title=''
                     blog=''
-                    const socket=socketIOClient('https://blooming-gorge-74715.herokuapp.com');
+                    // const socket=socketIOClient('https://blooming-gorge-74715.herokuapp.com');
                     socket.emit('blog_added',{data:res.data});
                     history.replace('/')
+
                 }
             }
                 )

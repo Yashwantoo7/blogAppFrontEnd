@@ -62,7 +62,7 @@ const UserDetail = () => {
                         <Box color='info.main'>Date Of Birth : {infoOfHost.date_of_birth.slice(0,10)}</Box>
                     </Typography>
                     <Typography className={classes.title} gutterBottom>
-                        <Box color='warning.main'>Total Blogs : {infoOfHost.totalblogs}</Box>
+                        <Box color='primary.main'>Total Blogs : {infoOfHost.totalblogs}</Box>
                     </Typography>
                 </Container>
                 {allBlogs}

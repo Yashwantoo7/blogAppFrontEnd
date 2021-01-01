@@ -13,8 +13,9 @@ const useStyles=makeStyles((theme)=>({
         justifyContent:'center',
         alignItems:'center',
         height:'100vh',
-        backgroundColor:'#607d8b'
-        // backgroundImage: 
+        opacity:0.5,
+        background:'linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c)'
+        // backgroundImage: '#607d8b'
     },
     grid:{
         marginLeft:'15px',
@@ -29,40 +30,41 @@ const useStyles=makeStyles((theme)=>({
     },
 }))
 
+
 const Profile = () => {
     const {name,email,dob,password,blogs,totalBlogs,id}=useContext(BlogsContext);
     console.log(dob,email,totalBlogs)
     const classes=useStyles();
     return (
         <div>
-            <Container >
-            <NavBar/>
-           <Paper elevation={5} className={classes.root}>
-
-           <Grid className={classes.grid} >           
-           <Avatar className={classes.avatar}>
-                    <AccountCircleIcon fontSize='large'/>
-            </Avatar>
-           <Typography variant="h4" component="h2">
-          Name: {name.charAt(0).toUpperCase()+name.slice(1)} 
-        </Typography>
-        <Typography variant="h5" component="h2">
-          ID: {id} 
-        </Typography>
-        <Typography variant="h5" component="h2">
-          Email: {email} 
-        </Typography>
-        <Typography variant="h5" component="h2">
-            Password:{password}
-        </Typography>
-        <Typography variant="h5" component="h2">
-          DOB: {dob.slice(0,10)} 
-        </Typography>
-        <Typography variant="h5" component="h2">
-            Total Blogs: {totalBlogs}
-        </Typography>
-        {totalBlogs>0?<Link to ='/ownblogs' >Blogs</Link>:''}
-        </Grid>
+        <Container >
+        <NavBar/>
+        <Paper elevation={5} className={classes.root}>
+            <Grid className={classes.grid} >           
+            <Avatar className={classes.avatar}>
+                        <AccountCircleIcon fontSize='large'/>
+                </Avatar>
+            <Typography variant="h4" component="h2" color="primary">
+            Name: {name.charAt(0).toUpperCase()+name.slice(1)} 
+            </Typography>
+            <Typography variant="h5" component="h2">
+            ID: {id} 
+            </Typography>
+            <Typography variant="h5" component="h2">
+            Email: {email} 
+            </Typography>
+            <Typography variant="h5" component="h2">
+                Password:{password}
+            </Typography>
+            <Typography variant="h5" component="h2">
+            DOB: {dob.slice(0,10)} 
+            </Typography>
+            <Typography variant="h5" component="h2">
+                Total Blogs: {totalBlogs}
+            </Typography>
+            {totalBlogs>0?<Link to ='/ownblogs' >Blogs</Link>:''}
+            </Grid>
+           
         </Paper>
        </Container>
         </div>       
