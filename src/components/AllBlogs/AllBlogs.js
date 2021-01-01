@@ -5,8 +5,9 @@ import { BlogsContext } from '../../context/Context'
 import SimpleCard from '../Card/Card';
 import {makeStyles} from '@material-ui/core/styles'
 import { useHistory } from 'react-router-dom';
-import socketIOClient from 'socket.io-client'
-const ENDPOINT='https://blooming-gorge-74715.herokuapp.com';
+import {socket} from '../../routes/Home'
+// import socketIOClient from 'socket.io-client'
+// const ENDPOINT='https://blooming-gorge-74715.herokuapp.com';
 
 const useStyles=makeStyles({
   button:{
@@ -20,32 +21,33 @@ const AllBlogs = () => {
 
   const classes=useStyles();
     const{blogs,addBlog,setBlogs}=useContext(BlogsContext);
-    console.log('blogs are',blogs)
+    // console.log('blogs are',blogs)
 
-    console.log("connecting")
-    const socket=socketIOClient('https://blooming-gorge-74715.herokuapp.com');
+    // console.log("connecting")
+    // const socket=socketIOClient('https://blooming-gorge-74715.herokuapp.com');
 
     const  updateBlogs= (updatedBlogs,data)=>{
       let i=0;
+      // console.log(updatedBlogs,data.data)
+      let found=false
       for(i=0;i<updatedBlogs.length;i++){
         if(updatedBlogs[i].id===data.data.id){
-  
+          found=true;
           updatedBlogs[i].blog=data.data.blog
          }
       }
+      if (found===false){
+        updatedBlogs.push(data.data)
+      }
       return updatedBlogs
     }
-    // useEffect(()=>{
-       setInterval(async ()=>{
+    useEffect(()=>{
         socket.on('update_blogs',data=>{
           let updatedBlogs=[...blogs]
           // console.log(updatedBlogs)
           updatedBlogs=updateBlogs(updatedBlogs,data.data)
         })
-      },5000)
-
-    
-    // })
+    },[])
     
 
   const renderBlogs=(blogs)=>{
@@ -91,8 +93,8 @@ const AllBlogs = () => {
               <Button onClick={handleAddBlog} className={classes.button} variant="contained">Add Blog</Button>
               </Grid>
               <h3>all blogs</h3>
-              <Grid container spacing={1}>
-                <Grid container item xs={12} spacing={3}>
+              <Grid  >
+                <Grid >
                   {searchField.length>0?searchedBlogs():allBlogs}
                 </Grid>
               </Grid>

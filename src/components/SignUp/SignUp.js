@@ -37,7 +37,7 @@ const SignUp = () => {
     const handleSubmit=async (e)=>{
         try{
             e.preventDefault();
-            console.log(name,email,dob,password)
+            // console.log(name,email,dob,password)
             await fetch('https://blooming-gorge-74715.herokuapp.com/signup',{
                 method:'post',
                 headers:{'Content-Type':'application/json'},

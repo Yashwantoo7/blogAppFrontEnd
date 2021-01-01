@@ -30,13 +30,13 @@ const UserDetail = () => {
     })
     
   const renderBlogs=(blogs)=>{
-      console.log(blogs)
+      // console.log(blogs)
     return  blogs.map(b=>{
       let size=b.blog.length;
-      console.log(size)
+      // console.log(size)
       let cardArr=[]
       while(size){
-        console.log(b.email,b.id,b.blog[size-1]);
+        // console.log(b.email,b.id,b.blog[size-1]);
           size-=1;
          cardArr.push(<SimpleCard id={b.id} blog={b.blog[size]} email={b.email} />)
       }
@@ -62,7 +62,7 @@ const UserDetail = () => {
                         <Box color='info.main'>Date Of Birth : {infoOfHost.date_of_birth.slice(0,10)}</Box>
                     </Typography>
                     <Typography className={classes.title} gutterBottom>
-                        <Box color='warning.main'>Total Blogs : {infoOfHost.totalblogs}</Box>
+                        <Box color='primary.main'>Total Blogs : {infoOfHost.totalblogs}</Box>
                     </Typography>
                 </Container>
                 {allBlogs}

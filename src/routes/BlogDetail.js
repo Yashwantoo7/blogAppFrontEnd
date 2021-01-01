@@ -45,7 +45,7 @@ const BlogDetail = () => {
               })
           })
           const user=await res.json()
-          console.log(user)
+          // console.log(user)
           if(user.status==="success"){
               await setInfoOfHost(user.info);
               await setBlogsOfHost(user.blogs);
