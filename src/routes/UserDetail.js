@@ -30,13 +30,13 @@ const UserDetail = () => {
     })
     
   const renderBlogs=(blogs)=>{
-      console.log(blogs)
+      // console.log(blogs)
     return  blogs.map(b=>{
       let size=b.blog.length;
-      console.log(size)
+      // console.log(size)
       let cardArr=[]
       while(size){
-        console.log(b.email,b.id,b.blog[size-1]);
+        // console.log(b.email,b.id,b.blog[size-1]);
           size-=1;
          cardArr.push(<SimpleCard id={b.id} blog={b.blog[size]} email={b.email} />)
       }

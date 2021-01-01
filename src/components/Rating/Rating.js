@@ -32,9 +32,9 @@ export default function Rating() {
 // console.log(currentBlog,currentBlogEmail)
   const handleChange = (event) => {
     setRating(event.target.value);
-    console.log(rating)
+    // console.log(rating)
   };
- console.log(rating)
+//  console.log(rating)
   const handleClose = () => {
     setOpen(false);
   };
@@ -45,7 +45,8 @@ export default function Rating() {
 
   const handleSubmit=async (e)=>{
     e.preventDefault()
-    try{console.log(currentBlog)
+    try{
+      // console.log(currentBlog)
         fetch(`https://blooming-gorge-74715.herokuapp.com/${id}/rating`,{
         method:'post',
         headers:{'Content-Type':'application/json'},
@@ -57,7 +58,8 @@ export default function Rating() {
             rating:rating
         })
         }).then(res=>res.json())
-        .then(res=>{console.log(res)
+        .then(res=>{
+          // console.log(res)
             const socket=socketIOClient('https://blooming-gorge-74715.herokuapp.com');
             socket.emit('blog_rated',{data:res.data});
             history.replace('/')

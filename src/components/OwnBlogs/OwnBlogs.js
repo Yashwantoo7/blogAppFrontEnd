@@ -13,10 +13,10 @@ const OwnBlogs = () => {
   const renderBlogs=(blogs)=>{
     return  blogs.map(b=>{
       let size=b.blog.length;
-      console.log(size)
+      // console.log(size)
       let cardArr=[]
       while(size){
-        console.log(b.email,b.id,b.blog[size-1]);
+        // console.log(b.email,b.id,b.blog[size-1]);
           size-=1;
          cardArr.push(<SimpleCard id={id} blog={b.blog[size]} email={email} />)
       }
@@ -34,12 +34,6 @@ const OwnBlogs = () => {
                 <Grid container item xs={12} spacing={3}>
                   {OwnBlogs}
                 </Grid>
-                {/* <Grid container item xs={12} spacing={3}>
-                  {OwnBlogs[0]}
-                </Grid>
-                <Grid container item xs={12} spacing={3}>
-                  {OwnBlogs[0]}
-                </Grid> */}
               </Grid>
             </Container>
         </div>

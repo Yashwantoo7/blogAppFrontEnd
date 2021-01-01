@@ -15,7 +15,6 @@ const useStyles=makeStyles((theme)=>({
         height:'100vh',
         opacity:0.5,
         background:'linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c)'
-        // backgroundImage: '#607d8b'
     },
     grid:{
         marginLeft:'15px',

@@ -21,14 +21,14 @@ const AllBlogs = () => {
 
   const classes=useStyles();
     const{blogs,addBlog,setBlogs}=useContext(BlogsContext);
-    console.log('blogs are',blogs)
+    // console.log('blogs are',blogs)
 
     // console.log("connecting")
     // const socket=socketIOClient('https://blooming-gorge-74715.herokuapp.com');
 
     const  updateBlogs= (updatedBlogs,data)=>{
       let i=0;
-      console.log(updatedBlogs,data.data)
+      // console.log(updatedBlogs,data.data)
       let found=false
       for(i=0;i<updatedBlogs.length;i++){
         if(updatedBlogs[i].id===data.data.id){
@@ -44,7 +44,7 @@ const AllBlogs = () => {
     useEffect(()=>{
         socket.on('update_blogs',data=>{
           let updatedBlogs=[...blogs]
-          console.log(updatedBlogs)
+          // console.log(updatedBlogs)
           updatedBlogs=updateBlogs(updatedBlogs,data.data)
         })
     },[])
