@@ -5,9 +5,7 @@ import { BlogsContext } from '../../context/Context'
 import SimpleCard from '../Card/Card';
 import {makeStyles} from '@material-ui/core/styles'
 import { useHistory } from 'react-router-dom';
-import {socket} from '../../routes/Home'
-// import socketIOClient from 'socket.io-client'
-// const ENDPOINT='https://blooming-gorge-74715.herokuapp.com';
+import {socket} from '../../routes/Home';
 
 const useStyles=makeStyles({
   button:{
@@ -21,14 +19,9 @@ const AllBlogs = () => {
 
   const classes=useStyles();
     const{blogs,addBlog,setBlogs}=useContext(BlogsContext);
-    // console.log('blogs are',blogs)
-
-    // console.log("connecting")
-    // const socket=socketIOClient('https://blooming-gorge-74715.herokuapp.com');
 
     const  updateBlogs= (updatedBlogs,data)=>{
       let i=0;
-      // console.log(updatedBlogs,data.data)
       let found=false
       for(i=0;i<updatedBlogs.length;i++){
         if(updatedBlogs[i].id===data.data.id){
@@ -39,12 +32,12 @@ const AllBlogs = () => {
       if (found===false){
         updatedBlogs.push(data.data)
       }
+      setBlogs(updatedBlogs)
       return updatedBlogs
     }
     useEffect(()=>{
         socket.on('update_blogs',data=>{
           let updatedBlogs=[...blogs]
-          // console.log(updatedBlogs)
           updatedBlogs=updateBlogs(updatedBlogs,data.data)
         })
     },[])
@@ -62,11 +55,9 @@ const AllBlogs = () => {
   })
   }
   const allBlogs=renderBlogs(blogs)
-  // console.log(renderBlogs(blogs))
   const {searchField}=useContext(BlogsContext);
   const searchedBlogs=()=>{
         let Cards=[]
-        // console.log(Cards.length)
         Cards=blogs.map(b=>{let size=b.blog.length;
             let CardArr=[];
         while(size){
@@ -77,7 +68,6 @@ const AllBlogs = () => {
           }
           return CardArr
         })
-        // console.log(Cards.length)
         if(Cards.length>0){
           return Cards
         }

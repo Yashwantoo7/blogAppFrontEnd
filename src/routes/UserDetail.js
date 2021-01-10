@@ -24,10 +24,8 @@ const useStyles = makeStyles({
 const UserDetail = () => {
     const classes=useStyles();
     const{infoOfHost,blogsOfHost}=useContext(BlogsContext)
+    console.log(infoOfHost,blogsOfHost)
 
-    useEffect(()=>{
-        
-    })
     
   const renderBlogs=(blogs)=>{
       // console.log(blogs)
@@ -38,7 +36,8 @@ const UserDetail = () => {
       while(size){
         // console.log(b.email,b.id,b.blog[size-1]);
           size-=1;
-         cardArr.push(<SimpleCard id={b.id} blog={b.blog[size]} email={b.email} />)
+          // console.log(infoOfHost)
+         cardArr.push(<SimpleCard id={b.id} blog={b.blog[size]} email={infoOfHost.email} />)
       }
       return cardArr;
   })
@@ -51,7 +50,7 @@ const UserDetail = () => {
             <Container fixed>
                 <NavBar/>
                 <Container className={classes.root} >
-                    <h3>Bloger Detail</h3>
+                    <h3>Author Detail</h3>
                     <Typography className={classes.pos,classes.title} gutterBottom>
                         <Box color='primary.main'>Name : {infoOfHost.name} </Box>
                     </Typography>

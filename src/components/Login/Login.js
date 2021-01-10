@@ -45,12 +45,12 @@ const Login = () => {
                     setDOB(user.userData.date_of_birth)
                     setLoggedIn(true)
                     setTotalBlogs(user.userData.totalblogs)
-                    // setEmail(user.userData.email)
-                    // console.log(user)
                     setBlogs(user.data);
                     setOwnBlogs(user.ownBlogs)
-                    // console.log(user.data,blogs)
                     history.push('/');
+                    }
+                    else{
+                        console.log(user.status)
                     }
                 })
             
@@ -106,7 +106,7 @@ const Login = () => {
                         color='primary'
                         className={classes.submit}
                         >
-                            Sign Up
+                            Sign In
                     </Button>
                 </form>
                 </div>

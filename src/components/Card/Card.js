@@ -33,7 +33,6 @@ const useStyles = makeStyles({
   const {setCurrentBlog,setCurrentBlogEmail}=useContext(BlogsContext);
 
   const bull = <span className={classes.bullet}>•</span>;
-  // console.log('blog in card',id,email,blog)
   let s='Optical character recognition or optical character reader (OCR) is the electronic or mechanical conversion of images of typed, handwritten or printed text into machine-encoded text, whether from a scanned document, a photo of a document, a scene-photo (for example the text on signs and billboards in a landscape photo) or from subtitle text superimposed on an image (for example: from a television broadcast).[1]'
   
   const learnMore=()=>{
@@ -52,7 +51,7 @@ const useStyles = makeStyles({
           <Box color="primary.main">{blog[0]}</Box>
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-         Rating   {blog[4]*5}/5
+         Rating   {(blog[4]*5).toPrecision(2)}/5
         </Typography>
         <Typography variant="body2" component="p">
           <br />
