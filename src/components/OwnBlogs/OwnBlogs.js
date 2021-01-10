@@ -30,11 +30,9 @@ const OwnBlogs = () => {
             <Container >
             <NavBar/>
               <h3>Own-Blogs</h3>
-              <Grid container spacing={1}>
-                <Grid container item xs={12} spacing={3}>
+                <Grid >
                   {OwnBlogs}
                 </Grid>
-              </Grid>
             </Container>
         </div>
     )

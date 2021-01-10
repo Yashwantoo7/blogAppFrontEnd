@@ -72,11 +72,11 @@ const BlogDetail = () => {
             <Box color="primary.main">{currentBlog[0]}</Box>
             </Typography>
             <Typography className={classes.pos} color="textSecondary">
-            Rating  {currentBlog[4]} /5
+            Rating  {(currentBlog[4]*5).toPrecision(2)} /5
             </Typography>
             <Typography variant="body2" component="p">
             <br />
-            <Box color="info.main">{currentBlog[1]}</Box>
+            <Box>{currentBlog[1]}</Box>
             </Typography>
         </Container>
         <Rating/>

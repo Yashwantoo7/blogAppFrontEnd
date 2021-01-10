@@ -46,6 +46,7 @@ export default function Rating() {
   const handleSubmit=async (e)=>{
     e.preventDefault()
     try{
+
       // console.log(currentBlog)
         fetch(`https://blooming-gorge-74715.herokuapp.com/${id}/rating`,{
         method:'post',
